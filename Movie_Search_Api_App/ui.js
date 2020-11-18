@@ -1,4 +1,4 @@
-const FALLBACK_POSTER_URL = 
+const FALLBACK_POSTER_URL = "https://upload.wikimedia.org/wikipedia/commons/e/e6/Movie_stub_film.svg";
 
 export const clearMovies = () => {
   const list = document.getElementById('search-results');
