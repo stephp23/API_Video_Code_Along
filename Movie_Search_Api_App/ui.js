@@ -1,3 +1,5 @@
+const FALLBACK_POSTER_URL = 
+
 export const clearMovies = () => {
   const list = document.getElementById('search-results');
   while (list.firstChild) {
@@ -31,8 +33,20 @@ const createListItem = (title, year, poster) => {
 export const appendMovies = (movies) => {
   const list = document.getElementById("search-results");
 
-  movies.forEach(movie) => {
-  const listItemNode = createListItem(movie.Title, movie.Year, movie.Poster);
-  list.appendChild(listItemNode);
+  movies.forEach((movie) => {
+    const moviePoster =
+      movie.Poster && movie.Poster !== "N/A"
+        ? movie.Poster
+        : FALLBACK_POSTER_URL;
+    const listItemNode = createListItem(movie.Title, movie.Year, moviePoster);
+    list.appendChild(listItemNode);
 });
 };
+
+export const setMessage = (message) => {
+  document.getElementById("search-pane-message").textContent = message;
+};
+
+
+
+
